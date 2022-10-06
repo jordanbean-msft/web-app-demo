@@ -1,4 +1,4 @@
-# template-repository
+# web-app-demo
 
 This repo shows you how to deploy an ASP.NET Framework web app to Azure, including the Infrastructure as Code & the Azure DevOps pipelines.
 
