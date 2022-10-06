@@ -4,6 +4,6 @@ parameters:
   - name: bicepEnvironmentVariablesDirectoryName
 
 variables:
-  pathTobicepEnvironmentVariablesDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.infrastructureDirectoryName }}/${{ parameters.bicepEnvironmentVariablesDirectoryName }}
+  pathToBicepEnvironmentVariablesDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.infrastructureDirectoryName }}/${{ parameters.bicepEnvironmentVariablesDirectoryName }}
   pathToAdoScriptDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.adoScriptDirectoryName }}
   pathToInfrastructureDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.infrastructureDirectoryName }}
