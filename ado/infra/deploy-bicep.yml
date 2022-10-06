@@ -11,7 +11,7 @@ steps:
   - template: ../printEnv.yml
   - task: AzureCLI@2
     inputs:
-      azureSubscription: ${{ parameters.serviceConnectionName }}
+      serviceConnectionName: ${{ parameters.serviceConnectionName }}
       scriptType: 'ps'
       scriptLocation: 'inlineScript'
       inlineScript: |
