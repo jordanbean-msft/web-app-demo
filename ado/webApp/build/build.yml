@@ -1,0 +1,24 @@
+parameters:
+ - name: configuration
+ - name: artifactName
+ - name: pathToSolutionFile
+
+steps:
+  - template: ../../printEnv.yml
+  - task: NuGetToolInstaller@0
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: ${{ parameters.pathToSolutionFile }}
+  - task: VSBuild@1
+    inputs:
+      solution: ${{ parameters.pathToSolutionFile }}
+      msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:publishUrl="$(System.DefaultWorkingDirectory)\\WebAppContent"'
+      configuration: ${{ parameters.configuration}}
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/WebAppContent'
+      includeRootFolder: false
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildNumber).zip'
+      replaceExistingArchive: true
+  - publish: $(Build.ArtifactStagingDirectory)
+    artifact: ${{ parameters.artifactName }}

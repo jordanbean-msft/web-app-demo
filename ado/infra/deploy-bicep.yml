@@ -1,0 +1,18 @@
+parameters:
+  - name: environmentName
+  - name: pathToInfrastructureDirectory
+  - name: pathToBicepEnvironmentVariablesDirectory
+  - name: serviceConnectionName
+  - name: resourceGroupName
+  
+steps:
+  - checkout: self
+    persistCredentials: 'true'
+  - template: ../printEnv.yml
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: ${{ parameters.serviceConnectionName }}
+      scriptType: 'ps'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az deployment group create -g ${{ parameters.resourceGroupName }} --template-file ${{ parameters.pathToInfrastructureDirectory }}/main.bicep --parameters ${{ parameters.pathToBicepEnvironmentVariablesDirectory }}/${{ parameters.environmentName }}.parameters.json

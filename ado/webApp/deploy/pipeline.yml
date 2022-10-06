@@ -1,0 +1,62 @@
+name: deploy-webapp
+variables:
+  - template: ../../env/global.yml
+  - template: ../../env/dev.yml
+  - template: ../../env/tst.yml
+  - template: ../../env/prd.yml
+trigger: none 
+resources:
+  pipelines:
+  - pipeline: build-webapp
+    source: build-webapp
+stages:
+  - stage: Dev
+    jobs:
+    - deployment: Dev_Deploy
+      pool:
+        vmImage: 'windows-latest'
+      environment: ${{ variables.devEnvironmentName }}
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - template: deploy.yml
+              parameters:
+                artifactName: ${{ variables.artifactName }}
+                serviceConnectionName: ${{ variables.devServiceConnectionName }}
+                appServiceName: ${{ variables.devAppServiceName }}
+                webAppBuildPipelineLabel: ${{ variables.webAppBuildPipelineLabel }}
+  # - stage: Tst
+  #   dependsOn: Dev
+  #   jobs:
+  #   - deployment: Tst_Deploy
+  #     pool:
+  #       vmImage: 'windows-latest'
+  #     environment: ${{ variables.tstEnvironmentName }}
+  #     strategy:
+  #       runOnce:
+  #         deploy:
+  #           steps:
+  #           - template: deploy.yml
+  #             parameters:
+  #               artifactName: ${{ variables.artifactName }}
+  #               serviceConnectionName: ${{ variables.tstServiceConnectionName }}
+  #               appServiceName: ${{ variables.tstAppServiceName }}
+  #               webAppBuildPipelineLabel: ${{ variables.webAppBuildPipelineLabel }}
+  # - stage: Prd
+  #   dependsOn: Tst 
+  #   jobs:
+  #   - deployment: Prd_Deploy
+  #     pool:
+  #       vmImage: 'windows-latest'
+  #     environment: ${{ variables.prdEnvironmentName }}
+  #     strategy:
+  #       runOnce:
+  #         deploy:
+  #           steps:
+  #           - template: deploy.yml
+  #             parameters:
+  #               artifactName: ${{ variables.artifactName }}
+  #               serviceConnectionName: ${{ variables.prdServiceConnectionName }}
+  #               appServiceName: ${{ variables.prdAppServiceName }}
+  #               webAppBuildPipelineLabel: ${{ variables.webAppBuildPipelineLabel }}

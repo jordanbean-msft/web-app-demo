@@ -1,0 +1,9 @@
+parameters:
+  - name: adoScriptDirectoryName
+  - name: infrastructureDirectoryName
+  - name: bicepEnvironmentVariablesDirectoryName
+
+variables:
+  pathToBicepEnvironmentVariablesDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.infrastructureDirectoryName }}/env/${{ parameters.bicepEnvironmentVariablesDirectoryName }}
+  pathToAdoScriptDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.adoScriptDirectoryName }}
+  pathToInfrastructureDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.infrastructureDirectoryName }}
