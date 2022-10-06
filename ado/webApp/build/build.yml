@@ -1,11 +1,7 @@
 parameters:
  - name: configuration
  - name: artifactName
- - name: pathToWebAppSolutionDirectory 
- - name: webAppSolutionName
-
-variables:
-  pathToSolutionFile: '${{ parameters.pathToWebAppSolutionDirectory }}/${{ parameters.webAppSolutionName }}.sln'
+ - name: pathToSolutionFile
 
 steps:
   - template: ../../printEnv.yml

@@ -2,4 +2,4 @@ parameters:
   - name: webAppSolutionName
 
 variables:
-  pathToWebAppSolutionDirectory: $(System.DefaultWorkingDirectory)/src/net-framework/${{ parameters.webAppSolutionName }}
+  pathToSolutionFile: '$(System.DefaultWorkingDirectory)/src/net-framework/${{ parameters.webAppSolutionName }}/${{ parameters.webAppSolutionName }}.sln'

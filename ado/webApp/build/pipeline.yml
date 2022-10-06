@@ -24,5 +24,4 @@ stages:
             parameters:
               configuration: ${{ variables.configuration }}
               artifactName: ${{ variables.artifactName }}
-              pathToWebAppSolutionDirectory: ${{ variables.pathToWebAppSolutionDirectory }}
-              webAppSolutionName: ${{ variables.webAppSolutionName }}
+              pathToSolutionFile: ${{ variables.pathToSolutionFile }}
