@@ -1,0 +1,29 @@
+name: build-webapp
+variables:
+  - template: ../../env/global.yml
+  - template: variables.yml
+    parameters:
+      webAppProjectName: ${{ variables.webAppProjectName }}
+      webAppSolutionName: ${{ variables.webAppSolutionName }}
+trigger:
+  branches:
+    include: 
+      - main
+  paths:
+    include:
+      - ../../env/global.yml
+      - ./*
+      - ../../../src/net-framework/*
+stages:
+  - stage: Build
+    jobs:
+      - job: Build
+        pool:
+          vmImage: 'windows-2022'
+        steps:
+          - template: build.yml
+            parameters:
+              configuration: ${{ variables.configuration }}
+              pathToWebAppSolutionDirectory: ${{ variables.pathToWebAppSolutionDirectory }}
+              webAppSolutionName: ${{ variables.webAppSolutionName }}
+              artifactName: ${{ variables.artifactName }}

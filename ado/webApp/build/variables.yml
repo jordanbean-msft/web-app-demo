@@ -1,0 +1,5 @@
+parameters:
+  - name: webAppSolutionName
+
+variables:
+  pathToWebAppSolutionDirectory: $(System.DefaultWorkingDirectory)/src/net-framework/${{ parameters.webAppSolutionName }}

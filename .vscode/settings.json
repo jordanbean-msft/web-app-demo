@@ -1,0 +1,10 @@
+{
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json": [
+      "file:///c%3A/Users/jordanbean/source/repos/web-app-demo/ado/webApp/deploy/pipeline.yml",
+      "file:///c%3A/Users/jordanbean/source/repos/web-app-demo/ado/webApp/deploy/deploy.yml",
+      "file:///c%3A/Users/jordanbean/source/repos/web-app-demo/ado/infra/deploy-bicep.yml",
+      "file:///c%3A/Users/jordanbean/source/repos/web-app-demo/ado/infra/pipeline.yml"
+    ]
+  }
+}

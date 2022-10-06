@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appName": {
+      "value": "webAppDemo"
+    },
+    "region": {
+      "value": "ussc"
+    },
+    "environment": {
+      "value": "dev"
+    },
+    "sqlAADAdminName": {
+      "value": "jordanbean@microsoft.com"
+    },
+    "sqlAADAdminObjectId": {
+      "value": "be7346a1-f02d-4514-8e52-14295d7d5d24"
+    },
+    "aadGroupObjectId": {
+      "value": "dc46a99f-cfb6-4567-a209-8f061c3e9d00"
+    }
+  }
+}

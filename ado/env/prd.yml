@@ -1,0 +1,5 @@
+variables:
+  prdEnvironmentName: prd
+  prdResourceGroupName: rg-webAppDemo-ussc-prd
+  prdServiceConnectionName: rg-webAppDemo-ussc-prd
+  prdAppServiceName: wa-net-framework-webAppDemo-ussc-prd

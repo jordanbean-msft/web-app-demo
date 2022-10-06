@@ -1,0 +1,5 @@
+variables:
+  devEnvironmentName: dev
+  devResourceGroupName: rg-webAppDemo-ussc-dev
+  devServiceConnectionName: rg-webAppDemo-ussc-dev
+  devAppServiceName: wa-net-framework-webAppDemo-ussc-dev

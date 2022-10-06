@@ -1,0 +1,5 @@
+variables:
+  tstEnvironmentName: tst
+  tstResourceGroupName: rg-webAppDemo-ussc-tst
+  tstServiceConnectionName: rg-webAppDemo-ussc-tst
+  tstAppServiceName: wa-net-framework-webAppDemo-ussc-tst
