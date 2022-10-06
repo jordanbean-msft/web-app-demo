@@ -8,10 +8,10 @@ steps:
   - task: NuGetToolInstaller@0
   - task: NuGetCommand@2
     inputs:
-      restoreSolution: ${{ variables.pathToSolutionFile }}
+      restoreSolution: ${{ parameter.pathToSolutionFile }}
   - task: VSBuild@1
     inputs:
-      solution: ${{ variables.pathToSolutionFile }}
+      solution: ${{ parameter.pathToSolutionFile }}
       msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:publishUrl="$(System.DefaultWorkingDirectory)\\WebAppContent"'
       configuration: ${{ parameters.configuration}}
   - task: ArchiveFiles@2
