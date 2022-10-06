@@ -5,7 +5,7 @@ parameters:
  - name: webAppSolutionName
 
 variables:
-  pathToSolutionFile: '$(pathToWebAppSolutionDirectory)/$(webAppSolutionName).sln'
+  pathToSolutionFile: '${{ parameters.pathToWebAppSolutionDirectory }}/${{ parameters.webAppSolutionName }}.sln'
 
 steps:
   - template: ../../printEnv.yml

@@ -3,7 +3,6 @@ variables:
   - template: ../../env/global.yml
   - template: variables.yml
     parameters:
-      webAppProjectName: ${{ variables.webAppProjectName }}
       webAppSolutionName: ${{ variables.webAppSolutionName }}
 trigger:
   branches:
@@ -24,6 +23,6 @@ stages:
           - template: build.yml
             parameters:
               configuration: ${{ variables.configuration }}
+              artifactName: ${{ variables.artifactName }}
               pathToWebAppSolutionDirectory: ${{ variables.pathToWebAppSolutionDirectory }}
               webAppSolutionName: ${{ variables.webAppSolutionName }}
-              artifactName: ${{ variables.artifactName }}
