@@ -1,9 +1,9 @@
 parameters:
   - name: adoScriptDirectoryName
   - name: infrastructureDirectoryName
-  - name: terraformEnvironmentVariablesDirectoryName
+  - name: bicepEnvironmentVariablesDirectoryName
 
 variables:
-  pathToTerraformEnvironmentVariablesDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.infrastructureDirectoryName }}/${{ parameters.terraformEnvironmentVariablesDirectoryName }}
+  pathTobicepEnvironmentVariablesDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.infrastructureDirectoryName }}/${{ parameters.bicepEnvironmentVariablesDirectoryName }}
   pathToAdoScriptDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.adoScriptDirectoryName }}
   pathToInfrastructureDirectory: $(System.DefaultWorkingDirectory)/${{ parameters.infrastructureDirectoryName }}
