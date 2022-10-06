@@ -34,6 +34,7 @@ stages:
                 environmentName: ${{ variables.devEnvironmentName }}
                 pathToInfrastructureDirectory: ${{ variables.pathtoInfrastructureDirectory }}
                 pathToBicepEnvironmentVariablesDirectory: ${{ variables.pathToBicepEnvironmentVariablesDirectory }}
+                serviceConnectionName: ${{ variables.devServiceConnectionName }}
                 resourceGroupName: ${{ variables.devResourceGroupName }}
   # - stage: Tst
   #   dependsOn: Dev 
